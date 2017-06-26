@@ -1,0 +1,16 @@
+0. Besides 4 × 4 (which are Game of Fifteen’s dimensions), what other dimensions does the framework allow?
+
+The game allows for a minimum dimension of 3 units and a maximum dimension of 9 units.
+
+1. With what sort of data structure is the game’s board represented?
+
+The game's board is represented on a 2-dimensional array.
+
+2. What function is called to greet the player at game’s start?
+
+The greet function is called. Which consists of clearing the game board followed by a printf message saying 'WELCOME TO GAME OF FIFTEEN'.
+The function is then delayed by 200000 microseconds before continuing.
+
+3. What functions do you apparently need to implement?
+
+The functions that need to be implemented are: init, draw, move and won.

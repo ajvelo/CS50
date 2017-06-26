@@ -1,0 +1,46 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+
+    It is a lung disease caused by the inhalation of crystalline silica dust.
+    
+1.  According to its man page, what does getrusage do?
+    
+    getrusage returns usage statistics for the calling process in question.
+    
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+
+    16 members.
+    
+3.  Why do you think we pass before and after by reference (instead of by value) to calculate,
+    even though we’re not changing their contents?
+    
+    This is done to allow calculate to access the most recent data. It also saves memory by allowing no new variables to be created.
+    The changes in memory allocation also allow for a faster run time.
+    
+4.  Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file.
+    In other words, convince us that you indeed understand how that function’s for loop works.
+    
+    The main function begins by making sure that the correct number of arguments are included in the command line. If they are not,
+    then an exit code of 1 will be returned and the program will quit. The function then continues by creating a string array called word,
+    the length defined by the #define statement with 1 extra block of memory to account for the NULL at the end of the string.
+    The for loop begins by reading the file one char at a time, until reaching the end, denoted by EOF (end of file).
+    The loop then checks if the char is an apostrophe or whether it is alphanumeric (done using isalpha()) before continuing on to the next char.
+    If the word contains a number it is ignored. This is done using isdigit().
+    Once the loop reaches the EOF and the index is greater than zero, then it is assumed that a new word has been found and the function is updated
+    accordingly. The current word is terminated and the word's spelling is checked using the getrusage() functions and the misspelled function
+    after the word counter is incremented by 1. If the word is misspelled then it is printed to the screen and the index goes back to 0
+    to begin looking for a new word.
+    
+5.  Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format string like "%s" to read whole words at a time? 
+    Put another way, what problems might arise by relying on fscanf alone?
+    
+    By using fscanf, you are assuming the input is well-structured. However if the input data contains formatting errors then
+    this can cause issues since it is unknown where these potential errors lie in the input data. fgetc allows one to read one block
+    at a time to check whether or not these errors (if any) exist.
+    
+6.  Why do you think we declared the parameters for check and load as const (which means "constant")?
+
+    Declaring parameters as constant is a safety measure to ensure they do not get changed elsewhere in the program, whether or not
+    the change was intentional.
+    
+
+    
